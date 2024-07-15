@@ -1,0 +1,45 @@
+The entities are made of tyes and fields
+
+type User {
+   id: String! (not nullabale)
+   email: String!
+   name: String
+   subscriptiom:[String] (this will be an array)
+}
+
+As always be specific about the naming
+
+Mutation 
+This is something like a post method, it used when there are changes to be made and the response
+is sent as a payload. Use interface and have standardset of fields to make it consistent.
+
+mutation createUser(email: String!, password: String!) {
+   createUser(email: $email, password: $password) {
+      id
+      email
+      password
+}
+}
+
+
+ interface MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+  }
+
+
+    type RegistrationMutationResponse implements MutationResponse {
+    code: String!
+    success: Boolean!
+    message: String!
+    user: User
+  }
+
+
+  
+
+
+
+
+
